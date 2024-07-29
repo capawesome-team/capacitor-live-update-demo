@@ -27,6 +27,7 @@
     "@capacitor/ios": "^6.1.1",
     "@capacitor/keyboard": "6.0.1",
     "@capacitor/status-bar": "6.0.0",
+    "@capawesome/capacitor-live-update": "^6.2.0",
     "@ionic/angular": "^8.0.0",
     "ionicons": "^7.2.1",
     "rxjs": "~7.8.0",
