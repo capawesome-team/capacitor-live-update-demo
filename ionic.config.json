@@ -1,0 +1,7 @@
+{
+  "name": "capacitor-live-update-demo",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
