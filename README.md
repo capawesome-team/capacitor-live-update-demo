@@ -20,7 +20,7 @@ The following plugins are included:
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/pkglab/capacitor-live-update-demo.git
+$ git clone https://github.com/capawesome-team/capacitor-live-update-demo.git
 
 # Change to the root directory of the project
 $ cd capacitor-live-update-demo
