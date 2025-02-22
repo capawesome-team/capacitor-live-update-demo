@@ -1,17 +1,17 @@
 PODS:
   - Alamofire (5.9.1)
-  - Capacitor (6.1.1):
+  - Capacitor (6.2.0):
     - CapacitorCordova
-  - CapacitorApp (6.0.0):
+  - CapacitorApp (6.0.2):
     - Capacitor
-  - CapacitorCordova (6.1.1)
-  - CapacitorHaptics (6.0.0):
+  - CapacitorCordova (6.2.0)
+  - CapacitorHaptics (6.0.2):
     - Capacitor
-  - CapacitorKeyboard (6.0.1):
+  - CapacitorKeyboard (6.0.3):
     - Capacitor
-  - CapacitorStatusBar (6.0.0):
+  - CapacitorStatusBar (6.0.2):
     - Capacitor
-  - CapawesomeCapacitorLiveUpdate (6.2.0):
+  - CapawesomeCapacitorLiveUpdate (6.7.2):
     - Alamofire (~> 5.9.0)
     - Capacitor
     - SSZipArchive (~> 2.2)
@@ -49,15 +49,15 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: f36a35757af4587d8e4f4bfa223ad10be2422b8c
-  Capacitor: 8941aba4364ba9d1b22188569001f2ce45cc2b00
-  CapacitorApp: 9d53aec7101f7b030a950c5bdc4df8612576b279
-  CapacitorCordova: 8f2cc8d8d3619c566e9418fe8772064a94266106
-  CapacitorHaptics: 9ebc9363f0e9b8eb4295088a0b474530acf1859b
-  CapacitorKeyboard: 5f32a712adf41e07a61caafb82cf29fb6d8ba123
-  CapacitorStatusBar: 2e4369f99166125435641b1908d05f561eaba6f6
-  CapawesomeCapacitorLiveUpdate: 236d3415d86ae2fa15ecf566e7a265bb2de734f9
+  Capacitor: 05d35014f4425b0740fc8776481f6a369ad071bf
+  CapacitorApp: e1e6b7d05e444d593ca16fd6d76f2b7c48b5aea7
+  CapacitorCordova: b33e7f4aa4ed105dd43283acdd940964374a87d9
+  CapacitorHaptics: 4fc15afe22b123d093e6ace24d95e8e3b1f261b9
+  CapacitorKeyboard: e89189ad398b815b6ff7e52271f0fb4f911a0a0a
+  CapacitorStatusBar: b16799a26320ffa52f6c8b01737d5a95bbb8f3eb
+  CapawesomeCapacitorLiveUpdate: 03369336ed53a1a7ef144cd076bd6bdb6900d4fd
   SSZipArchive: fe6a26b2a54d5a0890f2567b5cc6de5caa600aef
 
 PODFILE CHECKSUM: 8419065c73c622d3d930ec3f42168ce17c237fd1
 
-COCOAPODS: 1.15.2
+COCOAPODS: 1.16.2

@@ -1,6 +1,13 @@
 import { Component } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonButton } from '@ionic/angular/standalone';
 import { LiveUpdate } from '@capawesome/capacitor-live-update';
+import {
+  IonButton,
+  IonContent,
+  IonHeader,
+  IonTitle,
+  IonToolbar,
+  LoadingController,
+} from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-home',
@@ -10,17 +17,27 @@ import { LiveUpdate } from '@capawesome/capacitor-live-update';
   imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonButton],
 })
 export class HomePage {
-  constructor() {}
+  constructor(private readonly loadingCtrl: LoadingController) {
+    void LiveUpdate.ready();
+  }
 
   public onClick(): void {
-    alert('Ooops! An error occurred.');
-    // alert('Hello World!');
+    // alert('Ooops! An error occurred.');
+    alert('Hello World!');
   }
 
   public async onSync(): Promise<void> {
-    const result = await LiveUpdate.sync();
-    if (result.nextBundleId) {
+    let loadingElement: HTMLIonLoadingElement | undefined;
+    try {
+      loadingElement = await this.loadingCtrl.create({
+        message: 'Please wait...',
+      });
+      const result = await LiveUpdate.sync();
+      if (result.nextBundleId) {
         await LiveUpdate.reload();
+      }
+    } finally {
+      await loadingElement?.present();
     }
   }
 }
