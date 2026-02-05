@@ -1,21 +1,21 @@
 PODS:
-  - Alamofire (5.9.1)
-  - Capacitor (6.2.0):
+  - Alamofire (5.10.2)
+  - Capacitor (8.0.2):
     - CapacitorCordova
-  - CapacitorApp (6.0.2):
+  - CapacitorApp (8.0.0):
     - Capacitor
-  - CapacitorCordova (6.2.0)
-  - CapacitorHaptics (6.0.2):
+  - CapacitorCordova (8.0.2)
+  - CapacitorHaptics (8.0.0):
     - Capacitor
-  - CapacitorKeyboard (6.0.3):
+  - CapacitorKeyboard (8.0.0):
     - Capacitor
-  - CapacitorStatusBar (6.0.2):
+  - CapacitorStatusBar (8.0.0):
     - Capacitor
-  - CapawesomeCapacitorLiveUpdate (6.7.2):
-    - Alamofire (~> 5.9.0)
+  - CapawesomeCapacitorLiveUpdate (8.1.0):
+    - Alamofire (~> 5.10.2)
     - Capacitor
-    - SSZipArchive (~> 2.2)
-  - SSZipArchive (2.4.3)
+    - ZIPFoundation (~> 0.9.0)
+  - ZIPFoundation (0.9.20)
 
 DEPENDENCIES:
   - "Capacitor (from `../../node_modules/@capacitor/ios`)"
@@ -29,7 +29,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
-    - SSZipArchive
+    - ZIPFoundation
 
 EXTERNAL SOURCES:
   Capacitor:
@@ -48,16 +48,16 @@ EXTERNAL SOURCES:
     :path: "../../node_modules/@capawesome/capacitor-live-update"
 
 SPEC CHECKSUMS:
-  Alamofire: f36a35757af4587d8e4f4bfa223ad10be2422b8c
-  Capacitor: 05d35014f4425b0740fc8776481f6a369ad071bf
-  CapacitorApp: e1e6b7d05e444d593ca16fd6d76f2b7c48b5aea7
-  CapacitorCordova: b33e7f4aa4ed105dd43283acdd940964374a87d9
-  CapacitorHaptics: 4fc15afe22b123d093e6ace24d95e8e3b1f261b9
-  CapacitorKeyboard: e89189ad398b815b6ff7e52271f0fb4f911a0a0a
-  CapacitorStatusBar: b16799a26320ffa52f6c8b01737d5a95bbb8f3eb
-  CapawesomeCapacitorLiveUpdate: 03369336ed53a1a7ef144cd076bd6bdb6900d4fd
-  SSZipArchive: fe6a26b2a54d5a0890f2567b5cc6de5caa600aef
+  Alamofire: 7193b3b92c74a07f85569e1a6c4f4237291e7496
+  Capacitor: 2b79172ad27f3be2d103cce88b8eb9803fdcc744
+  CapacitorApp: 3963a84197280757b84f126afd1520a85ae3b092
+  CapacitorCordova: 921bdb690ebe82421b24fce45552fd3dea2ae43a
+  CapacitorHaptics: 2079d9fa04c5a71e18663b4722323c304c58245c
+  CapacitorKeyboard: d7868c079a4d5277a3deca27a10a488fcbbb8b69
+  CapacitorStatusBar: 312e2e67928dfe9514c4a8916a1fd610552f5f35
+  CapawesomeCapacitorLiveUpdate: cb597aab760b01967b773e63adc317206b7f9e88
+  ZIPFoundation: dfd3d681c4053ff7e2f7350bc4e53b5dba3f5351
 
-PODFILE CHECKSUM: 8419065c73c622d3d930ec3f42168ce17c237fd1
+PODFILE CHECKSUM: 7f9d5ec04cc4047f10dd9a4bc7d5d07576ebbde2
 
 COCOAPODS: 1.16.2
