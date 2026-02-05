@@ -1,12 +1,27 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Demo
-    </ion-title>
+    <ion-title>Login</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-button (click)="onClick()">Submit</ion-button>
-  <ion-button (click)="onSync()">Sync</ion-button>
+<ion-content class="ion-padding">
+  <ion-input
+    placeholder="Username"
+    fill="solid"
+    class="ion-margin-bottom"
+  ></ion-input>
+  <ion-input
+    placeholder="Password"
+    fill="solid"
+    type="password"
+    class="ion-margin-bottom"
+  ></ion-input>
+  <ion-button (click)="onLogin()" shape="round" expand="block"
+    >Login</ion-button
+  >
+  <div style="position: absolute; bottom: 16px; right: 16px">
+    <ion-button (click)="onReset()" shape="round"
+      ><ion-icon slot="icon-only" name="refresh"></ion-icon
+    ></ion-button>
+  </div>
 </ion-content>

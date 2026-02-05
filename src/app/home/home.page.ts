@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
+import { App } from '@capacitor/app';
 import { LiveUpdate } from '@capawesome/capacitor-live-update';
 import {
   IonButton,
   IonContent,
   IonHeader,
+  IonIcon,
+  IonInput,
   IonTitle,
   IonToolbar,
-  LoadingController,
 } from '@ionic/angular/standalone';
 
 @Component({
@@ -14,30 +16,40 @@ import {
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonButton],
+  imports: [
+    IonHeader,
+    IonToolbar,
+    IonTitle,
+    IonContent,
+    IonButton,
+    IonInput,
+    IonIcon,
+  ],
 })
 export class HomePage {
-  constructor(private readonly loadingCtrl: LoadingController) {
+  constructor() {
+    // Notify LiveUpdate that the app is ready and no rollback should be performed.
     void LiveUpdate.ready();
-  }
-
-  public onClick(): void {
-    // alert('Ooops! An error occurred.');
-    alert('Hello World!');
-  }
-
-  public async onSync(): Promise<void> {
-    let loadingElement: HTMLIonLoadingElement | undefined;
-    try {
-      loadingElement = await this.loadingCtrl.create({
-        message: 'Please wait...',
-      });
+    // Listen for the app to resume and check for updates when that happens.
+    void App.addListener('resume', async () => {
       const result = await LiveUpdate.sync();
       if (result.nextBundleId) {
-        await LiveUpdate.reload();
+        const confirmed = await window.confirm(
+          'A new update is available. Do you want to reload the app to apply the update?',
+        );
+        if (confirmed) {
+          await LiveUpdate.reload();
+        }
       }
-    } finally {
-      await loadingElement?.present();
-    }
+    });
+  }
+
+  public onLogin(): void {
+    // alert('Ooops! An error occurred.');
+    alert('Welcome!');
+  }
+
+  public onReset(): void {
+    void LiveUpdate.reset();
   }
 }
