@@ -12,18 +12,18 @@ import {
 } from '@ionic/angular/standalone';
 
 @Component({
-    selector: 'app-home',
-    templateUrl: 'home.page.html',
-    styleUrls: ['home.page.scss'],
-    imports: [
-        IonHeader,
-        IonToolbar,
-        IonTitle,
-        IonContent,
-        IonButton,
-        IonInput,
-        IonIcon,
-    ]
+  selector: 'app-home',
+  templateUrl: 'home.page.html',
+  styleUrls: ['home.page.scss'],
+  imports: [
+    IonHeader,
+    IonToolbar,
+    IonTitle,
+    IonContent,
+    IonButton,
+    IonInput,
+    IonIcon,
+  ],
 })
 export class HomePage {
   constructor() {
@@ -44,8 +44,8 @@ export class HomePage {
   }
 
   public onLogin(): void {
-    // alert('Ooops! An error occurred.');
-    alert('Welcome!');
+    alert('Ooops! An error occurred.');
+    // alert('Welcome!');
   }
 
   public onReset(): void {
