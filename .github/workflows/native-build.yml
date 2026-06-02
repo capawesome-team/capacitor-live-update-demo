@@ -55,7 +55,7 @@ jobs:
       - name: Build iOS
         run: |
           npx @capawesome/cli@${{ env.CAPAWESOME_CLI_VERSION }} apps:builds:create \
-            --app-id ${{ secrets.CAPAWESOME_CLOUD_APP_ID }} \
+            --app-id ${{ env.CAPAWESOME_CLOUD_APP_ID }} \
             --platform ios \
             --type simulator \
             --git-ref ${{ github.event.pull_request.head.sha || github.sha }} \
