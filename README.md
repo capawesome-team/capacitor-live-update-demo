@@ -1,12 +1,19 @@
 # Capacitor Live Update Demo
 
-⚡️ A simple Ionic Angular app that demonstrates the [Capacitor Live Update plugin](https://capawesome.io/plugins/live-update/).
+⚡️ A simple Capacitor app that demonstrates the [Capacitor Live Update plugin](https://capawesome.io/plugins/live-update/).
 
 It ships with a **pre-configured Capawesome Cloud app**, so live updates work out of the box — no account or setup required. Just install the app and try it.
 
+## Stack
+
+- [Capacitor](https://capacitorjs.com/) — Android + iOS
+- [Ionic Core](https://ionicframework.com/docs/components) (web components, loaded from CDN) — UI, no frontend framework
+- [Vite](https://vitejs.dev/) — web build
+- [Swift Package Manager](https://www.swift.org/documentation/package-manager/) — native iOS dependencies (no CocoaPods)
+
 ## How it works
 
-The home screen shows a large **bundle badge** (`v1`) and a status card with the current bundle ID, channel, device ID, and last sync time.
+The screen shows a large **bundle badge** (`v1`) and a status card with the current bundle ID, channel, device ID, and last sync time.
 
 When a newer bundle is published to the cloud, the app detects it the next time it resumes from the background and offers to reload. After reloading, the badge changes (e.g. `v1` → `v2`) — that's the live update in action, no app store update needed.
 
@@ -16,7 +23,7 @@ When a newer bundle is published to the cloud, the app detects it the next time 
 
 - [Node.js](https://nodejs.org)
 - Android: [Android Studio](https://developer.android.com/studio)
-- iOS: [Xcode](https://apps.apple.com/app/xcode/id497799835)
+- iOS: [Xcode](https://apps.apple.com/app/xcode/id497799835) (dependencies are managed with Swift Package Manager — no CocoaPods needed)
 
 ### Steps
 
@@ -30,10 +37,10 @@ npm install
 npm run build
 
 # Run on Android
-npx ionic cap run android
+npx cap run android
 
 # Run on iOS
-npx ionic cap run ios
+npx cap run ios
 ```
 
 That's it. The app is already wired to a live Capawesome Cloud app, so it will receive updates automatically.
@@ -51,20 +58,19 @@ npm start
 3. Send the app to the background, then reopen it. It detects the update and asks to reload.
 4. Accept — the badge now shows `v2`. 🎉
 
-Use **Reset to built-in bundle** to roll back to the bundle that shipped inside the app.
+Use **Switch channel** to move the device between channels, and **Reset to built-in bundle** to roll back to the bundle that shipped inside the app.
 
-## Publishing updates (CI)
+## Continuous Integration
 
-The included [`publish-live-update.yml`](.github/workflows/publish-live-update.yml) workflow shows the real deployment path:
+Two GitHub Actions workflows are included:
 
-1. Bumps the badge label to `v2`.
-2. Builds the web assets.
-3. Uploads the bundle to Capawesome Cloud with the [Capawesome CLI](https://capawesome.io/docs/cloud/cli/):
-   ```bash
-   npx @capawesome/cli apps:liveupdates:upload --app-id <APP_ID> --path www --channel default --yes
-   ```
+- [`live-update.yml`](.github/workflows/live-update.yml) — bumps the badge to `v2`, builds the web assets, and uploads the bundle to Capawesome Cloud with the [Capawesome CLI](https://capawesome.io/docs/cloud/cli/):
+  ```bash
+  npx @capawesome/cli apps:liveupdates:upload --app-id <APP_ID> --path dist --channel default --yes
+  ```
+  Runs on every push to `main` (ignoring Markdown-only changes) and on manual dispatch. Requires the `CAPAWESOME_TOKEN` secret.
 
-It runs automatically on every push to `main` (ignoring Markdown-only changes) and can also be triggered manually from the **Actions** tab. It authenticates via a `CAPAWESOME_TOKEN` repository secret.
+- [`native-build.yml`](.github/workflows/native-build.yml) — builds native Android and iOS apps in the cloud via [Capawesome Cloud Native Builds](https://capawesome.io/docs/cloud/native-builds/), which also verifies the SPM setup compiles. Requires the `CAPAWESOME_CLOUD_TOKEN` and `CAPAWESOME_CLOUD_APP_ID` secrets.
 
 ## Optional: use your own Capawesome Cloud app
 
@@ -72,7 +78,7 @@ Only needed if you want to publish your own bundles instead of using the pre-con
 
 1. Create an app in the [Capawesome Cloud Console](https://cloud.capawesome.io/).
 2. Sign in to the CLI: `npx @capawesome/cli login`.
-3. Replace the `LiveUpdate.appId` in [`capacitor.config.ts`](capacitor.config.ts) with your app ID.
+3. Replace the `LiveUpdate.appId` in [`capacitor.config.json`](capacitor.config.json) with your app ID.
 
 ## Key concepts
 

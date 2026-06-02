@@ -1,26 +1,95 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Live Update Demo</title>
+    <meta
+      name="viewport"
+      content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
 
-<head>
-  <meta charset="utf-8" />
-  <title>Ionic App</title>
+    <script
+      type="module"
+      src="https://unpkg.com/@ionic/pwa-elements@latest/dist/ionicpwaelements/ionicpwaelements.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/@ionic/pwa-elements@latest/dist/ionicpwaelements/ionicpwaelements.js"
+    ></script>
 
-  <base href="/" />
+    <link rel="icon" type="image/x-icon" href="./assets/icon/favicon.ico" />
+    <link rel="manifest" href="./manifest.json" />
+    <meta name="theme-color" content="#31d53d" />
 
-  <meta name="color-scheme" content="light dark" />
-  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta name="format-detection" content="telephone=no" />
-  <meta name="msapplication-tap-highlight" content="no" />
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"
+    />
 
-  <link rel="icon" type="image/png" href="assets/icon/favicon.png" />
+    <link rel="stylesheet" href="./css/style.css" />
 
-  <!-- add to homescreen for ios -->
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-</head>
+    <script type="module" src="./js/script.js"></script>
+  </head>
+  <body>
+    <ion-app>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Live Update Demo</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <div id="badge">
+          <span id="badge-label">–</span>
+          <p>Current bundle</p>
+        </div>
 
-<body>
-  <app-root></app-root>
-</body>
+        <ion-card>
+          <ion-card-content class="ion-no-padding">
+            <ion-list lines="full">
+              <ion-item>
+                <ion-label>App version</ion-label>
+                <ion-note slot="end" id="version-name">–</ion-note>
+              </ion-item>
+              <ion-item>
+                <ion-label>Bundle ID</ion-label>
+                <ion-note slot="end" id="bundle-id">–</ion-note>
+              </ion-item>
+              <ion-item>
+                <ion-label>Channel</ion-label>
+                <ion-note slot="end" id="channel">–</ion-note>
+              </ion-item>
+              <ion-item>
+                <ion-label>Device ID</ion-label>
+                <ion-note slot="end" id="device-id">–</ion-note>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-label>Last sync</ion-label>
+                <ion-note slot="end" id="last-sync">Never</ion-note>
+              </ion-item>
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
 
+        <ion-button id="check-button" shape="round" expand="block" class="ion-margin-top">
+          Check for updates
+        </ion-button>
+        <ion-button id="switch-channel-button" shape="round" expand="block" fill="outline">
+          Switch channel
+        </ion-button>
+        <ion-button id="reset-button" shape="round" expand="block" fill="outline">
+          Reset to built-in bundle
+        </ion-button>
+      </ion-content>
+    </ion-app>
+  </body>
 </html>

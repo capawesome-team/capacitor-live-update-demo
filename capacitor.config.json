@@ -1,0 +1,12 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "Live Update Demo",
+  "webDir": "dist",
+  "plugins": {
+    "LiveUpdate": {
+      "appId": "364983d8-aa19-4e07-b456-470d634f2217",
+      "readyTimeout": 10000,
+      "autoBlockRolledBackBundles": true
+    }
+  }
+}
