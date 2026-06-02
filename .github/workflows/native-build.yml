@@ -13,6 +13,7 @@ on:
 
 env:
   CAPAWESOME_CLI_VERSION: latest
+  CAPAWESOME_CLOUD_APP_ID: 364983d8-aa19-4e07-b456-470d634f2217
   NODE_VERSION: 24
 
 concurrency:
@@ -30,11 +31,11 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
       - name: Authenticate with Capawesome Cloud
-        run: npx @capawesome/cli@${{ env.CAPAWESOME_CLI_VERSION }} login --token ${{ secrets.CAPAWESOME_TOKEN }}
+        run: npx @capawesome/cli@${{ env.CAPAWESOME_CLI_VERSION }} login --token ${{ secrets.CAPAWESOME_CLOUD_TOKEN }}
       - name: Build Android
         run: |
           npx @capawesome/cli@${{ env.CAPAWESOME_CLI_VERSION }} apps:builds:create \
-            --app-id ${{ secrets.CAPAWESOME_CLOUD_APP_ID }} \
+            --app-id ${{ env.CAPAWESOME_CLOUD_APP_ID }} \
             --platform android \
             --type debug \
             --git-ref ${{ github.event.pull_request.head.sha || github.sha }} \
@@ -50,7 +51,7 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
       - name: Authenticate with Capawesome Cloud
-        run: npx @capawesome/cli@${{ env.CAPAWESOME_CLI_VERSION }} login --token ${{ secrets.CAPAWESOME_TOKEN }}
+        run: npx @capawesome/cli@${{ env.CAPAWESOME_CLI_VERSION }} login --token ${{ secrets.CAPAWESOME_CLOUD_TOKEN }}
       - name: Build iOS
         run: |
           npx @capawesome/cli@${{ env.CAPAWESOME_CLI_VERSION }} apps:builds:create \

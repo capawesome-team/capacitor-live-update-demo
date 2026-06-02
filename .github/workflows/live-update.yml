@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths-ignore:
-      - '**/*.md'
+      - "**/*.md"
   workflow_dispatch:
 
 jobs:
@@ -32,7 +32,7 @@ jobs:
 
       - name: Upload live update bundle
         env:
-          CAPAWESOME_TOKEN: ${{ secrets.CAPAWESOME_TOKEN }}
+          CAPAWESOME_CLOUD_TOKEN: ${{ secrets.CAPAWESOME_CLOUD_TOKEN }}
         run: >
           npx @capawesome/cli apps:liveupdates:upload
           --app-id 364983d8-aa19-4e07-b456-470d634f2217
