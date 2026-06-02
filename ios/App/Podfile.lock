@@ -11,7 +11,7 @@ PODS:
     - Capacitor
   - CapacitorStatusBar (8.0.0):
     - Capacitor
-  - CapawesomeCapacitorLiveUpdate (8.1.0):
+  - CapawesomeCapacitorLiveUpdate (8.2.3):
     - Alamofire (~> 5.10.2)
     - Capacitor
     - ZIPFoundation (~> 0.9.0)
@@ -55,7 +55,7 @@ SPEC CHECKSUMS:
   CapacitorHaptics: 2079d9fa04c5a71e18663b4722323c304c58245c
   CapacitorKeyboard: d7868c079a4d5277a3deca27a10a488fcbbb8b69
   CapacitorStatusBar: 312e2e67928dfe9514c4a8916a1fd610552f5f35
-  CapawesomeCapacitorLiveUpdate: cb597aab760b01967b773e63adc317206b7f9e88
+  CapawesomeCapacitorLiveUpdate: dddec08ed1086d61328823e20fdc52946241796f
   ZIPFoundation: dfd3d681c4053ff7e2f7350bc4e53b5dba3f5351
 
 PODFILE CHECKSUM: 7f9d5ec04cc4047f10dd9a4bc7d5d07576ebbde2

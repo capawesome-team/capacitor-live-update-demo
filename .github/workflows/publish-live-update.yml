@@ -1,0 +1,41 @@
+name: Publish Live Update
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '**/*.md'
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Bump bundle label to v2
+        run: sed -i "s/const BUNDLE_LABEL = 'v1';/const BUNDLE_LABEL = 'v2';/" src/app/home/home.page.ts
+
+      - name: Build web assets
+        run: npm run build
+
+      - name: Upload live update bundle
+        env:
+          CAPAWESOME_TOKEN: ${{ secrets.CAPAWESOME_TOKEN }}
+        run: >
+          npx @capawesome/cli apps:liveupdates:upload
+          --app-id 364983d8-aa19-4e07-b456-470d634f2217
+          --path www
+          --channel default
+          --yes

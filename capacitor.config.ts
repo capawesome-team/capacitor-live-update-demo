@@ -2,7 +2,7 @@ import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'io.ionic.starter',
-  appName: 'capacitor-live-update-demo',
+  appName: 'Live Update Demo',
   webDir: 'www',
   plugins: {
     LiveUpdate: {

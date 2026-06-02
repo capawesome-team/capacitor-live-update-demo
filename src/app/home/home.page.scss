@@ -1,27 +1,42 @@
-#container {
+#badge {
   text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  margin: 24px 0;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+#badge-label {
+  display: inline-block;
+  min-width: 96px;
+  padding: 16px 24px;
+  border-radius: 24px;
+
+  background: var(--ion-color-primary);
+  color: var(--ion-color-primary-contrast);
+
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+#badge-label.badge-v1 {
+  background: var(--ion-color-danger);
+  color: var(--ion-color-danger-contrast);
 }
 
-#container a {
-  text-decoration: none;
+#badge-label.badge-v2 {
+  background: var(--ion-color-success);
+  color: var(--ion-color-success-contrast);
+}
+
+#badge p {
+  margin: 12px 0 0;
+  color: var(--ion-color-medium);
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+ion-note {
+  max-width: 60%;
+  text-align: right;
+  word-break: break-all;
 }

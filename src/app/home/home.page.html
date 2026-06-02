@@ -1,27 +1,61 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Login</ion-title>
+    <ion-title>Live Update Demo</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-input
-    placeholder="Username"
-    fill="solid"
-    class="ion-margin-bottom"
-  ></ion-input>
-  <ion-input
-    placeholder="Password"
-    fill="solid"
-    type="password"
-    class="ion-margin-bottom"
-  ></ion-input>
-  <ion-button (click)="onLogin()" shape="round" expand="block"
-    >Login</ion-button
-  >
-  <div style="position: absolute; bottom: 16px; right: 16px">
-    <ion-button (click)="onReset()" shape="round"
-      ><ion-icon slot="icon-only" name="refresh"></ion-icon
-    ></ion-button>
+  <div id="badge">
+    <span id="badge-label" [class]="'badge-' + bundleLabel">{{ bundleLabel }}</span>
+    <p>Current bundle</p>
   </div>
+
+  <ion-card>
+    <ion-card-content class="ion-no-padding">
+      <ion-list lines="full">
+        <ion-item>
+          <ion-label>App version</ion-label>
+          <ion-note slot="end">{{ versionName }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>Bundle ID</ion-label>
+          <ion-note slot="end">{{ currentBundleId ?? 'Built-in' }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>Channel</ion-label>
+          <ion-note slot="end">{{ channel ?? 'Default' }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>Device ID</ion-label>
+          <ion-note slot="end">{{ deviceId }}</ion-note>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label>Last sync</ion-label>
+          <ion-note slot="end">{{ lastSync }}</ion-note>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button
+    (click)="checkForUpdate()"
+    shape="round"
+    expand="block"
+    class="ion-margin-top"
+    >Check for updates</ion-button
+  >
+  <ion-button
+    (click)="switchChannel()"
+    shape="round"
+    expand="block"
+    fill="outline"
+    >Switch channel</ion-button
+  >
+  <ion-button
+    (click)="reset()"
+    shape="round"
+    expand="block"
+    fill="outline"
+    >Reset to built-in bundle</ion-button
+  >
 </ion-content>
