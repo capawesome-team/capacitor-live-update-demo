@@ -53,12 +53,21 @@ npm start
 
 ## Try a live update
 
+You don't need to publish anything to see this work. Every push to `main` automatically
+publishes a fresh bundle (see the **Live Update** workflow below), so there is normally an
+update waiting for you out of the box — just run the app and try it:
+
 1. Run the app on a device or simulator — the badge shows `v1`.
-2. Push a change to `main` (or run the **Publish Live Update** workflow manually) to publish a `v2` bundle.
-3. Send the app to the background, then reopen it. It detects the update and asks to reload.
-4. Accept — the badge now shows `v2`. 🎉
+2. Send the app to the background, then reopen it. It detects the update and asks to reload.
+3. Accept — the badge now shows `v2`. 🎉
 
 Use **Switch channel** to move the device between channels, and **Reset to built-in bundle** to roll back to the bundle that shipped inside the app.
+
+> [!NOTE]
+> Live update bundles expire after a while, so an unused one may eventually disappear. If the
+> app reports that you're already on the latest version and no update shows up, just
+> [open an issue](https://github.com/capawesome-team/capacitor-live-update-demo/issues) and
+> we'll publish a fresh bundle for you.
 
 ## Continuous Integration
 
