@@ -70,9 +70,6 @@ You don't need to publish anything to see this work. Every push to `main` automa
 
 Use **Switch channel** to move the device between channels, and **Reset to built-in bundle** to roll back to the bundle that shipped inside the app.
 
-> [!NOTE]
-> Live update bundles expire after a while, so an unused one may eventually disappear. If the app reports that you're already on the latest version and no update shows up, just [open an issue](https://github.com/capawesome-team/capacitor-live-update-demo/issues) and we'll publish a fresh bundle for you.
-
 ## Configuration
 
 The app uses a pre-configured demo cloud app out of the box. To publish your own bundles instead:
@@ -89,7 +86,7 @@ Two GitHub Actions workflows are included:
   ```bash
   npx @capawesome/cli apps:liveupdates:upload --app-id <APP_ID> --path dist --channel default --yes
   ```
-  Runs on every push to `main` (ignoring Markdown-only changes) and on manual dispatch. Requires the `CAPAWESOME_CLOUD_TOKEN` secret.
+  Runs on every push to `main` (ignoring Markdown-only changes), weekly on a schedule (so there is always a fresh, non-expired bundle waiting), and on manual dispatch. Requires the `CAPAWESOME_CLOUD_TOKEN` secret.
 
 - [`native-build.yml`](.github/workflows/native-build.yml) — builds native Android and iOS apps in the cloud via [Capawesome Cloud Native Builds](https://capawesome.io/docs/cloud/native-builds/), which also verifies the SPM setup compiles. Requires the `CAPAWESOME_CLOUD_TOKEN` and `CAPAWESOME_CLOUD_APP_ID` secrets.
 
