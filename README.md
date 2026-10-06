@@ -22,7 +22,8 @@ It ships with a **pre-configured Capawesome Cloud app**, so live updates work ou
 ## Tech Stack
 
 - [Capacitor](https://capacitorjs.com/) — Android + iOS
-- [Ionic Core](https://ionicframework.com/docs/components) (web components, loaded from CDN) — UI, no frontend framework
+- [Capacitor Electron](https://github.com/capawesome-team/capacitor-electron) — desktop (macOS, Windows, Linux)
+- [Ionic Core](https://ionicframework.com/docs/components) (web components, bundled via npm) — UI, no frontend framework
 - [Vite](https://vitejs.dev/) — web build
 - [Swift Package Manager](https://www.swift.org/documentation/package-manager/) — native iOS dependencies (no CocoaPods)
 
@@ -33,6 +34,7 @@ It ships with a **pre-configured Capawesome Cloud app**, so live updates work ou
 - [Node.js](https://nodejs.org)
 - Android: [Android Studio](https://developer.android.com/studio)
 - iOS: [Xcode](https://apps.apple.com/app/xcode/id497799835) (dependencies are managed with Swift Package Manager — no CocoaPods needed)
+- Electron: no extra tooling — the Electron dependencies in `electron/` are installed automatically by the `postinstall` script
 
 ### Installation
 
@@ -52,8 +54,21 @@ npx cap run android
 # iOS
 npx cap run ios
 
+# Electron
+npx cap sync @capawesome/capacitor-electron
+npx cap run @capawesome/capacitor-electron
+
 # Web (development only)
 npm start
+```
+
+> [!NOTE]
+> Always use the full package name `@capawesome/capacitor-electron` with Capacitor CLI commands. A bare `npx cap run electron` resolves to the `electron` npm package and silently does nothing.
+
+To package the Electron app as a distributable (dmg, msi/nsis, AppImage/deb), run:
+
+```bash
+cd electron && npm run pack
 ```
 
 The app is already wired to a live Capawesome Cloud app, so it receives updates automatically — no extra configuration needed.
@@ -64,7 +79,7 @@ The screen shows a large **bundle badge** (`v1`) and a status card with the curr
 
 You don't need to publish anything to see this work. Every push to `main` automatically publishes a fresh bundle (see [Continuous Integration](#continuous-integration)), so there is normally an update waiting for you out of the box — just run the app and try it:
 
-1. Run the app on a device or simulator — the badge shows `v1`.
+1. Run the app on a device, simulator, or desktop (Electron) — the badge shows `v1`.
 2. Send the app to the background, then reopen it. It detects the update and asks to reload.
 3. Accept — the badge now shows `v2`. 🎉
 

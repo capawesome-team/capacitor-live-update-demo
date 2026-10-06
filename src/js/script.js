@@ -1,3 +1,5 @@
+import './ionic.js';
+import '../css/style.css';
 import { App } from '@capacitor/app';
 import { LiveUpdate } from '@capawesome/capacitor-live-update';
 
@@ -70,7 +72,7 @@ const switchChannel = async () => {
     const result = await LiveUpdate.fetchChannels();
     channels = result.channels;
   } catch {
-    await presentToast('Fetching channels is only supported on Android and iOS.');
+    await presentToast('Fetching channels is only supported on Android, iOS, and Electron.');
     return;
   }
   if (channels.length === 0) {
@@ -119,7 +121,7 @@ const init = async () => {
     await LiveUpdate.ready();
     await refresh();
   } catch {
-    // Live Update is only available on Android and iOS.
+    // Live Update is only available on Android, iOS, and Electron.
   }
 };
 
