@@ -6,18 +6,21 @@
   "scripts": {
     "start": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "postinstall": "cd electron && npm ci && cd .."
   },
   "dependencies": {
     "@capacitor/android": "^8.5.2",
     "@capacitor/app": "^8.1.2",
     "@capacitor/core": "^8.5.2",
     "@capacitor/ios": "^8.5.2",
-    "@capawesome/capacitor-live-update": "^8.4.4"
+    "@capawesome/capacitor-electron": "^0.2.0",
+    "@capawesome/capacitor-live-update": "^8.5.0",
+    "@ionic/core": "^9.0.6"
   },
   "devDependencies": {
     "@capacitor/cli": "^8.5.2",
-    "@capawesome/cli": "^4.24.0",
+    "@capawesome/cli": "^4.26.0",
     "vite": "^7.2.2"
   }
 }
